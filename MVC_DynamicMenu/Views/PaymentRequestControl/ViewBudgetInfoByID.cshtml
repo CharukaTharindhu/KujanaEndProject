@@ -1,0 +1,238 @@
+﻿@model MainBudgetAgreement
+@{ ViewData["Title"] = "Add New BudgetAgreement"; }
+<head>
+    <link href="~/css/Addfile.css" rel="stylesheet" />
+</head>
+<div class="container">
+    <header class="header">
+        <h1 id="title" class="text-center">View Paymwnt Request</h1>
+        <p id="description" class="description text-center">
+
+        </p>
+
+
+    </header>
+    <form asp-action="" id="survey-form">
+
+        <div class="form-group">
+            <h5>Payment Infomation Of Allocated Support Budgets</h5>
+            <br />
+            @*Allocated Support Budgets*@
+            <div id="supbudget">
+                <div id="Aform-holder0">
+
+
+                    <div class="row">
+                        <div class="col-md-4">
+                            <h6>Biller Type</h6>
+                            <select id="biller0" asp-for="AllocateBudgetAgreement[0].Biler_type" class="form-control">
+                                <option value="NDIS">NDIS</option>
+                                <option value="Client_Funded">Client_Funded</option>
+                                <option value="Nominee">Nominee</option>
+                                <option value="Organisation_funded">Organisation_funded</option>
+                                <option value="Plan_managed">Plan_managed</option>
+                            </select>
+                        </div>
+
+                        <div class="col-md-4">
+
+                            <label id="name-label">Budget</label>
+                            <input type="text"
+                                   id="budget0"
+                                   asp-for="AllocateBudgetAgreement[0].Budget"
+                                   class="form-control"
+                                   placeholder="$" />
+                        </div>
+
+                        <div class="col-md-4">
+                            <label id="name-label">Remaining Budget</label>
+                            <input type="text"
+                                   id="rembudget0"
+                                   asp-for="AllocateBudgetAgreement[0].Remaining_budget"
+                                   class="form-control"
+                                   placeholder="$" />
+                        </div>
+
+                    </div>
+                    <br />
+
+                </div>
+            </div>
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            @* end supbudet *@
+        <h5>Payment Infomation Of My Support</h5>
+            <br />
+            <div id="MySupbudget">
+                <div id="myform-holder0">
+
+                    <br />
+                    <div class="row">
+                        <div class="col-md-3">
+                            <h6>Biller Type</h6>
+                            <select id="biller0" asp-for="MySupport[0].Biller_type" class="form-control">
+                                <option value="NDIS">NDIS</option>
+                                <option value="Client_Funded">Client_Funded</option>
+                                <option value="Nominee">Nominee</option>
+                                <option value="Organisation_funded">Organisation_funded</option>
+                                <option value="Plan_managed">Plan_managed</option>
+                            </select>
+                        </div>
+
+                        <div class="col-md-3">
+                            <h6>Service Providers</h6>
+                            <select id="sProvider0" asp-for="MySupport[0].Service_Provider" class="form-control">
+                                @*<option disabled selected value>Select current role</option>*@
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+
+                    </div>
+
+                    <br />
+                    <br />
+                    <div class="row">
+                  
+                        <div class="col-md-4">
+                            <label id="name-label">SVC Booking</label>
+                            <input type="text"
+                                   id="svc0"
+                                   asp-for="MySupport[0].SVC_Booking"
+                                   class="form-control" />
+                        </div>
+
+
+
+                        <div class="col-md-4">
+                            <label id="name-label">Qty Week</label>
+                            <input type="text"
+                                   id="qtyWeek0"
+                                   asp-for="MySupport[0].Qty_week"
+                                   class="form-control" />
+                        </div>
+
+
+                        <div class="col-md-4">
+                            <label id="name-label">Total Units</label>
+                            <input type="text"
+                                   id="tUnits0"
+                                   asp-for="MySupport[0].Total_units"
+                                   class="form-control"
+                                   placeholder="$" />
+                        </div>
+                    </div>
+
+
+                    <br />
+                    <div class="row">
+
+                        <div class="col-md-6">
+                            <label id="name-label">Unit Price</label>
+                            <input type="text"
+                                   id="uPrice0"
+                                   asp-for="MySupport[0].Unit_Price"
+                                   class="form-control"
+                                   placeholder="Week" />
+                        </div>
+
+                        <div class="col-md-6">
+                            <label id="name-label">Total Price</label>
+                            <input type="text"
+                                   id="tPrice0"
+                                   asp-for="MySupport[0].Total_price"
+                                   class="form-control" />
+                        </div>
+
+
+
+                    </div>
+                    <br />
+                    <br />
+                </div>@*End My support*@
+            </div>
+            <br />
+            <br />
+            <br />
+
+            @*Additional Activity Log*@
+        <h5>Payment Infomation Of Additional Activity Log</h5>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <textarea asp-for="AdditionalActivityClass[0].Description_of_costs" placeholder="--Add Description--" id="comments"
+                              class="input-textarea">
+
+                        </textarea>
+                </div>
+
+                <div class="col-md-3">
+                    <h6>Biller</h6>
+                    <select id="biller0" asp-for="AdditionalActivityClass[0].Biller" class="form-control" required>
+                        <option value="NDIS">NDIS</option>
+                        <option value="Client_Funded">Client_Funded</option>
+                        <option value="Nominee">Nominee</option>
+                        <option value="Organisation_funded">Organisation_funded</option>
+                        <option value="Plan_managed">Plan_managed</option>
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <h6>Total Price</h6>
+                    <input type="text"
+                           id="TPrice0"
+                           asp-for="AdditionalActivityClass[0].Total_Price"
+                           class="form-control"
+                           required />
+                </div>
+
+
+            </div>
+            <br />
+            <br />
+
+            <h6>Notes</h6>
+            <textarea asp-for="AdditionalActivityClass[0].Notes" id="comments"
+                      class="input-textarea">
+
+                    </textarea>
+            <br />
+            <br />
+
+
+
+
+
+            <script type="text/javascript">const projectName = 'survey-form';</script>
+
+
+        </div>
+
+        @section Scripts{
+            <script>function myFunction() {
+                    var input, filter, table, tr, td, i, txtValue;
+                    input = document.getElementById("myInput");
+                    filter = input.value.toUpperCase();
+                    table = document.getElementById("myTable");
+                    tr = table.getElementsByTagName("tr");
+                    for (i = 0; i < tr.length; i++) {
+                        td = tr[i].getElementsByTagName("td")[1];
+                        if (td) {
+                            txtValue = td.textContent || td.innerText;
+                            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                                tr[i].style.display = "";
+                            } else {
+                                tr[i].style.display = "none";
+                            }
+                        }
+                    }
+                }</script>
+        }
+    </form>
+</div>
+
+
+
+
+

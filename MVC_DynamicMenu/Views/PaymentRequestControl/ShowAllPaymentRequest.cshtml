@@ -1,0 +1,80 @@
+﻿@model List<PaymentRequest>
+@{ ViewData["Title"] = "Home page"; }
+<head>
+    <link href="~/css/Addfile.css" rel="stylesheet" />
+</head>
+<div class="container">
+    <header class="header">
+
+        <h1 id="title" class="text-center">Payment Request</h1>
+        <p id="description" class="description text-center">
+
+        </p>
+    </header>
+
+    <form id="survey-form">
+        <div class="row" style="overflow-x:auto;">
+            <div class="col-md-12">
+                <table class="table badge-light">
+                    <thead>
+                        <tr>
+                            <th>Payment Request</th>
+                            <th>External Reference</th>
+                            <th>Created Date</th>
+                            <th>Status</th>
+                            <th>Line Item Qty</th>
+                            <th>Total</th>
+                            <th>Biller Type</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    @foreach (var item in Model)
+                    {
+        <tr>
+            <td>@item.PaymentID</td>
+            <td>@item.External_Reference</td>
+            <td>@item.Created_Date</td>
+            <td>@item.Status</td>
+            <td>@item.Line_Item_Qty</td>
+            <td>@item.Total</td>
+            <td>@item.Biller_Type</td>
+
+            <td>
+                <a asp-controller="PaymentRequestControl" asp-action="ViewBudgetInfoByID" asp-route-id="@item.PaymentID">View</a>
+            </td>
+        </tr>}
+                </table>
+            </div>
+        </div>
+
+        <script type="text/javascript">const projectName = 'survey-form';</script>
+
+        @section Scripts{
+            <script>function myFunction() {
+                    var input, filter, table, tr, td, i, txtValue;
+                    input = document.getElementById("myInput");
+                    filter = input.value.toUpperCase();
+                    table = document.getElementById("myTable");
+                    tr = table.getElementsByTagName("tr");
+                    for (i = 0; i < tr.length; i++) {
+                        td = tr[i].getElementsByTagName("td")[1];
+                        if (td) {
+                            txtValue = td.textContent || td.innerText;
+                            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                                tr[i].style.display = "";
+                            } else {
+                                tr[i].style.display = "none";
+                            }
+                        }
+                    }
+                }</script>
+
+
+        }
+    </form>
+
+
+
+
+
+</div>

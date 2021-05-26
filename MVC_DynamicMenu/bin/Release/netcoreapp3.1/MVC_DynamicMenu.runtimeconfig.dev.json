@@ -1,0 +1,8 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "C:\\Users\\Charuka\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\Charuka\\.nuget\\packages"
+    ]
+  }
+}
